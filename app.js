@@ -10,7 +10,7 @@ const _ = require('lodash');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/todoListDB');
+  await mongoose.connect('mongodb+srv://admin:admin@cluster0.zmwqt.mongodb.net/todoListDB?retryWrites=true&w=majority');
 }
 
 const itemSchema = new mongoose.Schema({
@@ -161,6 +161,6 @@ app.get("/about", (req, res)=>{
     res.render("about");
 })
 
-app.listen(process.env.PORT || "3000", function(){
+app.listen("3000", function(){
     console.log("Server started on localhost: 3000");
 })
