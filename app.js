@@ -64,7 +64,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static("public"));
 
-app.get(process.env.PORT || "3000", function(req, res){
+app.get("/", function(req, res){
 
     Item.find({}, function(err, results){
 
