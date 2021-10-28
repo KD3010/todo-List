@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyparser = require("body-parser");
 let ejs = require("ejs");
@@ -7,10 +8,11 @@ const { request } = require("express");
 const mongoose = require('mongoose');
 const _ = require('lodash');
 
+
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://admin:admin@cluster0.zmwqt.mongodb.net/todoListDB?retryWrites=true&w=majority');
+  await mongoose.connect(`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.zmwqt.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`);
 }
 
 const itemSchema = new mongoose.Schema({
